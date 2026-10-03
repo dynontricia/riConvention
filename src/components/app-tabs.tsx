@@ -16,17 +16,32 @@ export default function AppTabs() {
         <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           src={require('@/assets/images/tabIcons/home.png')}
-          renderingMode="template"
+          renderingMode="original"
         />
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="explore">
-        <NativeTabs.Trigger.Label>Explore</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="schedule">
+        <NativeTabs.Trigger.Label>Schedule</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/explore.png')}
-          renderingMode="template"
+          src={require('@/assets/images/tabIcons/calendar.png')}
+          renderingMode="original"
+
         />
       </NativeTabs.Trigger>
+        <NativeTabs.Trigger name="event-guide">
+            <NativeTabs.Trigger.Label>Event Guide</NativeTabs.Trigger.Label>
+            <NativeTabs.Trigger.Icon
+                src={require('@/assets/images/tabIcons/map-guide.png')}
+                renderingMode="original"
+            />
+        </NativeTabs.Trigger>
+        <NativeTabs.Trigger name="settings">
+            <NativeTabs.Trigger.Label>Settings</NativeTabs.Trigger.Label>
+            <NativeTabs.Trigger.Icon
+                src={require('@/assets/images/tabIcons/settings.png')}
+                renderingMode="original"
+            />
+        </NativeTabs.Trigger>
     </NativeTabs>
   );
 }

@@ -38,7 +38,13 @@ yarn-error.*
 
 example
 /.env
+.env
 
 # generated native folders
 /ios
 /android
+/.idea/vcs.xml
+/riconvention.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/.gitignore

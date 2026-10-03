@@ -89,7 +89,7 @@ export function AnimatedIcon() {
 
       <Animated.View entering={keyframe.duration(DURATION)} style={styles.background} />
       <Animated.View style={styles.imageContainer} entering={logoKeyframe.duration(DURATION)}>
-        <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} />
+        <Image style={styles.image} source={require('@/assets/images/2027-RI-Convention-logo.jpg')} />
       </Animated.View>
     </View>
   );
@@ -101,32 +101,35 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   glow: {
-    width: 201,
-    height: 201,
+    width: 350,
+    height: 350,
     position: 'absolute',
+    backgroundColor: `linear-gradient(180deg, #8F59FF, #0274DF)`,
   },
   iconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 128,
-    height: 128,
+    width: 200,
+    height: 200,
     zIndex: 100,
+    borderRadius: 20,
   },
   image: {
     position: 'absolute',
-    width: 76,
-    height: 71,
-  },
-  background: {
-    borderRadius: 40,
-    experimental_backgroundImage: `linear-gradient(180deg, #3C9FFE, #0274DF)`,
     width: 128,
     height: 128,
+    borderRadius: 40,
+  },
+  background: {
+    experimental_backgroundImage: `linear-gradient(180deg, #8F59FF, #0274DF)`,
+    width: 150,
+    height: 150,
     position: 'absolute',
+    borderRadius: 40,
   },
   backgroundSolidColor: {
     ...StyleSheet.absoluteFill,
-    backgroundColor: '#208AEF',
+    backgroundColor: '#8F59FF',
     zIndex: 1000,
   },
 });
