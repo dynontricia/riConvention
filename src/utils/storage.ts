@@ -5,6 +5,7 @@ const KEYS = {
     lastInitial: 'user_last_initial',
     hasOnboarded: 'has_onboarded',
     largeText: 'large_text',
+    committeeEmail: 'committee_email',
 } as const;
 
 export async function saveUserName(firstName: string, lastInitial: string): Promise<void> {
@@ -34,6 +35,7 @@ export async function clearUserData(): Promise<void> {
     await AsyncStorage.removeItem(KEYS.firstName);
     await AsyncStorage.removeItem(KEYS.lastInitial);
     await AsyncStorage.removeItem(KEYS.hasOnboarded);
+    await AsyncStorage.removeItem(KEYS.committeeEmail);
 }
 
 export async function getLargeText(): Promise<boolean> {
@@ -43,4 +45,13 @@ export async function getLargeText(): Promise<boolean> {
 
 export async function setLargeText(enabled: boolean): Promise<void> {
     await AsyncStorage.setItem(KEYS.largeText, enabled ? 'true' : 'false');
+}
+
+// Set only after the emailed code is confirmed. Presence = confirmed on this device.
+export async function setConfirmedCommitteeEmail(email: string): Promise<void> {
+    await AsyncStorage.setItem(KEYS.committeeEmail, email);
+}
+
+export async function getConfirmedCommitteeEmail(): Promise<string | null> {
+    return AsyncStorage.getItem(KEYS.committeeEmail);
 }

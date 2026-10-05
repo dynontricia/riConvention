@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import CommitteeVerify from '@/components/onboarding/committee-verify';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from 'react-native';
 
@@ -296,6 +297,8 @@ export default function ProfileForm({ initialValues, onSave, onSkip, showSkip = 
                 </View>
                 <ThemedText type="small" style={styles.label}>I am a Convention Committee Member</ThemedText>
             </TouchableOpacity>
+
+            {isConventionCommittee && <CommitteeVerify />}
 
             {/* Buttons */}
             <TouchableOpacity
