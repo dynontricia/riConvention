@@ -9,27 +9,27 @@ import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#1D2B33',
-    background: '#FFFFFF',
-    backgroundElement: '#3a97b9',
-    backgroundElementSecondary: '#FCE7D1',
-    backgroundSelected: '#ff9647',
-    textSecondary: '#f3f3f3',
-    textTertiary: '#7A8892',
-    accent: '#3A8FBF',
-    teal: '#2C7195',
+    text: '#1E3A5F',
+    background: '#FFF6E5',
+    backgroundElement: '#FFFFFF',
+    backgroundElementSecondary: '#F4ECDA',
+    backgroundSelected: '#D9ECF5',
+    textSecondary: '#47617A',
+    textTertiary: '#8CA0B3',
+    accent: '#FF9F42',
+    teal: '#2E9BC6'
   },
   dark: {
-    text: '#EDF6FA',
-    background: '#0E1B22',
-    backgroundElement: '#1B4A63',
-    backgroundElementSecondary: '#FCE7D1',
-    backgroundSelected: '#F4A259',
-    textSecondary: '#A5D0E4',
-    textTertiary: '#7A97A8',
-    accent: '#6BB0D2',
-    teal: '#F4A259',
-  },
+    text: '#FFF6E5',
+    background: '#122639',
+    backgroundElement: '#1E3A5F',
+    backgroundElementSecondary: '#274B70',
+    backgroundSelected: '#2E5A82',
+    textSecondary: '#B9C7D6',
+    textTertiary: '#7E93A8',
+    accent: '#FF9F42',
+    teal: '#4FB3D9'
+  }
 };
 
 export type AppColors = typeof Colors.light;

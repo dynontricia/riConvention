@@ -11,6 +11,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from 'react-native';
+import CommitteeVerify from '@/components/onboarding/committee-verify';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -70,6 +71,7 @@ export type ProfileFormValues = {
 
 type Props = {
     initialValues?: Partial<ProfileFormValues>;
+    committeeConfirmed?: boolean;
     onSave: (values: ProfileFormValues) => Promise<void>;
     onSkip?: () => void;
     showSkip?: boolean;
@@ -175,7 +177,7 @@ function MultiSelectPicker({
 
 // ─── MAIN FORM ───────────────────────────────────────────────────────────────
 
-export default function ProfileForm({ initialValues, onSave, onSkip, showSkip = true }: Props) {
+export default function ProfileForm({ initialValues, committeeConfirmed = false, onSave, onSkip, showSkip = true }: Props) {
     const scheme = useColorScheme();
     const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -185,6 +187,7 @@ export default function ProfileForm({ initialValues, onSave, onSkip, showSkip = 
     const [servicePositions, setServicePositions] = useState<string[]>(initialValues?.servicePositions ?? []);
     const [interests, setInterests] = useState<string[]>(initialValues?.interests ?? []);
     const [isConventionCommittee, setIsConventionCommittee] = useState(initialValues?.isConventionCommittee ?? false);
+    const [confirmed, setConfirmed] = useState(committeeConfirmed);
     const [saving, setSaving] = useState(false);
 
     const handleSave = async () => {
@@ -296,6 +299,13 @@ export default function ProfileForm({ initialValues, onSave, onSkip, showSkip = 
                 </View>
                 <ThemedText type="small" style={styles.label}>I am a Convention Committee Member</ThemedText>
             </TouchableOpacity>
+            {isConventionCommittee && (
+                <CommitteeVerify
+                    confirmed={confirmed}
+                    onConfirmed={() => setConfirmed(true)}
+                    colors={colors}
+                />
+            )}
 
             {/* Buttons */}
             <TouchableOpacity

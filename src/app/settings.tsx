@@ -43,6 +43,7 @@ export default function SettingsScreen() {
 
     const [showProfileModal, setShowProfileModal] = useState(false);
     const [initialValues, setInitialValues] = useState<Partial<ProfileFormValues>>({});
+    const [committeeConfirmed, setCommitteeConfirmed] = useState(false);
     const { largeText, toggleLargeText } = useTextSize();
     const [notificationsEnabled, setNotificationsEnabled] = useState(false);
     const [reminderCount, setReminderCount] = useState(0);
@@ -118,6 +119,7 @@ export default function SettingsScreen() {
             interests: profile?.interests ?? [],
             isConventionCommittee: profile?.conv_comm_init ?? false,
         });
+        setCommitteeConfirmed(profile?.conv_comm_confirmed ?? false);
     }, []);
 
     const handleOpenProfile = async () => {
@@ -135,6 +137,7 @@ export default function SettingsScreen() {
         await clearUserData();
         await deleteProfile();
         setInitialValues({});
+        setCommitteeConfirmed(false);
     };
 
     return (
@@ -282,6 +285,7 @@ export default function SettingsScreen() {
                         </View>
                         <ProfileForm
                             initialValues={initialValues}
+                            committeeConfirmed={committeeConfirmed}
                             onSave={handleSaveProfile}
                             showSkip={false}
                         />
